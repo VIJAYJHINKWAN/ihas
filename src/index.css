@@ -1,0 +1,326 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core Neutrals */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
+    --background-subtle: 40 20% 98%;
+    --background-section: 220 15% 97%;
+    
+    /* Card & Surface */
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    
+    /* Institutional Maroon - Primary (used sparingly) */
+    --primary: 350 65% 28%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 350 50% 95%;
+    --primary-muted: 350 30% 45%;
+    
+    /* Academic Blue - For academics/courses */
+    --academic: 210 70% 40%;
+    --academic-foreground: 0 0% 100%;
+    --academic-light: 210 60% 96%;
+    --academic-muted: 210 40% 55%;
+    
+    /* Sage Green - For infrastructure */
+    --sage: 155 35% 38%;
+    --sage-foreground: 0 0% 100%;
+    --sage-light: 155 40% 96%;
+    --sage-muted: 155 25% 50%;
+    
+    /* Warm Amber - For admissions */
+    --amber: 30 80% 45%;
+    --amber-foreground: 0 0% 100%;
+    --amber-light: 35 80% 97%;
+    --amber-muted: 30 50% 55%;
+    
+    /* Deep Teal - For student life */
+    --teal: 185 55% 35%;
+    --teal-foreground: 0 0% 100%;
+    --teal-light: 185 50% 96%;
+    --teal-muted: 185 35% 50%;
+    
+    /* Plum Purple - For research */
+    --plum: 280 35% 40%;
+    --plum-foreground: 0 0% 100%;
+    --plum-light: 280 40% 97%;
+    --plum-muted: 280 25% 55%;
+    
+    /* Gold - For achievements/awards */
+    --gold: 42 85% 48%;
+    --gold-foreground: 220 20% 15%;
+    --gold-light: 42 70% 96%;
+    
+    /* Secondary & UI States */
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 20% 25%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 350 50% 95%;
+    --accent-foreground: 350 65% 28%;
+    
+    /* Functional */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 88%;
+    --border-light: 220 15% 93%;
+    --input: 220 15% 88%;
+    --ring: 350 65% 28%;
+    
+    --radius: 0.5rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 20% 15% / 0.03);
+    --shadow-md: 0 4px 6px -1px hsl(220 20% 15% / 0.05), 0 2px 4px -2px hsl(220 20% 15% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(220 20% 15% / 0.08), 0 4px 6px -4px hsl(220 20% 15% / 0.05);
+    --shadow-xl: 0 20px 25px -5px hsl(220 20% 15% / 0.1), 0 8px 10px -6px hsl(220 20% 15% / 0.08);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 350 60% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Section Backgrounds */
+  .section-neutral {
+    @apply bg-background;
+  }
+  
+  .section-subtle {
+    @apply bg-background-subtle;
+  }
+  
+  .section-academic {
+    @apply bg-academic-light;
+  }
+  
+  .section-sage {
+    @apply bg-sage-light;
+  }
+  
+  .section-amber {
+    @apply bg-amber-light;
+  }
+  
+  .section-teal {
+    @apply bg-teal-light;
+  }
+  
+  .section-plum {
+    @apply bg-plum-light;
+  }
+  
+  .section-gold {
+    @apply bg-gold-light;
+  }
+  
+  /* Card Variants */
+  .card-institution {
+    @apply bg-card rounded-lg border border-border-light shadow-md hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .card-academic {
+    @apply bg-card rounded-lg border-l-4 border-l-academic border border-border-light shadow-md;
+  }
+  
+  .card-sage {
+    @apply bg-card rounded-lg border-l-4 border-l-sage border border-border-light shadow-md;
+  }
+  
+  .card-amber {
+    @apply bg-card rounded-lg border-l-4 border-l-amber border border-border-light shadow-md;
+  }
+  
+  .card-teal {
+    @apply bg-card rounded-lg border-l-4 border-l-teal border border-border-light shadow-md;
+  }
+  
+  .card-plum {
+    @apply bg-card rounded-lg border-l-4 border-l-plum border border-border-light shadow-md;
+  }
+  
+  /* Badge Styles */
+  .badge-primary {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary text-primary-foreground;
+  }
+  
+  .badge-academic {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-academic text-academic-foreground;
+  }
+  
+  .badge-gold {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gold text-gold-foreground;
+  }
+  
+  /* Mega Menu - Full Width Panel */
+  .mega-menu-container {
+    @apply fixed left-0 right-0 top-auto w-screen z-[60];
+  }
+  
+  .mega-menu-panel {
+    @apply bg-card border-t-4 border-t-primary border-b border-border shadow-2xl;
+    animation: megaMenuSlide 0.25s ease-out forwards;
+  }
+  
+  .mega-menu-column {
+    @apply space-y-2;
+  }
+  
+  .mega-menu-heading {
+    @apply text-sm font-bold text-primary uppercase tracking-wider pb-3 mb-3 border-b-2 border-primary/20;
+  }
+  
+  .mega-menu-link {
+    @apply block text-sm text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all py-2 px-2 rounded-md -mx-2;
+  }
+  
+  @keyframes megaMenuSlide {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Announcement Ticker */
+  .announcement-ticker {
+    @apply overflow-hidden whitespace-nowrap;
+  }
+  
+  .announcement-ticker-content {
+    @apply inline-block animate-ticker;
+  }
+  
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-heading font-bold text-foreground mb-2;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-muted-foreground mb-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.95) 0%, hsl(var(--primary-muted) / 0.9) 100%);
+  }
+  
+  .bg-gradient-academic {
+    background: linear-gradient(135deg, hsl(var(--academic)) 0%, hsl(var(--academic-muted)) 100%);
+  }
+  
+  .bg-gradient-sage {
+    background: linear-gradient(135deg, hsl(var(--sage)) 0%, hsl(var(--sage-muted)) 100%);
+  }
+}
+
+/* Animations */
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 30s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out forwards;
+}
