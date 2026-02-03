@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="I.T.S Institute of Health & Allied Sciences - Premier Physiotherapy College Affiliated to ABVMU, Lucknow">
+    <meta name="theme-color" content="#7A1F1F">
+    <title>I.T.S Institute of Health & Allied Sciences</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: 122, 31, 31;
+            --primary-light: 160, 82, 82;
+            --primary-foreground: 255, 255, 255;
+            --background: 255, 255, 255;
+            --foreground: 15, 23, 42;
+            --card: 248, 250, 252;
+            --border: 226, 232, 240;
+            --border-light: 241, 245, 249;
+            --muted-foreground: 100, 116, 139;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 0.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+            background-color: rgb(var(--background));
+            color: rgb(var(--foreground));
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* TOPBAR */
+        .topbar {
+            background-color: rgb(var(--foreground));
+            color: rgb(var(--primary-foreground));
+            padding: 0.5rem 0;
+            font-size: 0.875rem;
+        }
+
+        .topbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 1rem;
+            flex-wrap: wrap;
+            min-height: 36px;
+        }
+
+        .topbar a {
+            color: rgb(var(--primary-foreground));
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            transition: opacity 0.3s;
+        }
+
+        .topbar a:hover {
+            opacity: 0.8;
+        }
+
+        .topbar-divider {
+            opacity: 0.4;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-box input {
+            height: 28px;
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.875rem;
+            width: 160px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            ring: 1px solid rgb(var(--primary));
+            width: 200px;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgb(var(--card));
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            width: 100%;
+        }
+
+        .header-top {
+            border-bottom: 1px solid rgb(var(--border));
+            padding: 1rem 1rem;
+        }
+
+        .header-top-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+        }
+
+        @media (min-width: 768px) {
+            .logo-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .logo-text {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .logo-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 3px;
+            height: 36px;
+            border-radius: 9999px;
+            background-color: rgb(122, 31, 31);
+        }
+
+        .institution-name {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: rgb(122, 31, 31);
+            line-height: 1.3;
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 768px) {
+            .institution-name {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .institution-name {
+                font-size: 1.875rem;
+            }
+        }
+
+        .institution-subtitle {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgb(75, 85, 99);
+            margin-top: 0.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .institution-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .header-actions {
+            display: none;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .header-actions {
+                display: flex;
+            }
+        }
+
+        .naac-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            border-radius: 0.5rem;
+        }
+
+        .naac-badge-circle {
+            width: 48px;
+            height: 48px;
+            background-color: rgb(217, 119, 6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: rgb(var(--primary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(102, 0, 0);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid rgb(var(--primary));
+            color: rgb(var(--primary));
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(122, 31, 31, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            padding: 0.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (min-width: 1024px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* NAVIGATION */
+        .nav-primary {
+            background-color: rgb(var(--primary));
+            overflow-x: auto;
+        }
+
+        .nav-primary-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            padding: 0.75rem 0.75rem;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* MEGA MENU */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: var(--shadow-xl);
+            border-top: 4px solid rgb(var(--primary));
+            display: none;
+            padding: 1.5rem;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .mega-menu.active {
+            display: block;
+        }
+
+        .nav-item:hover .mega-menu {
+            display: block;
+        }
+
+        .mega-menu-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mega-menu-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mega-menu-header h3 {
+            font-size: 1.25rem;
+            color: rgb(var(--primary));
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .mega-menu-item {
+            background: rgb(var(--card));
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgb(var(--border-light));
+            transition: all 0.3s;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mega-menu-item:hover {
+            background-color: rgb(var(--primary));
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .mega-menu-item-icon {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 0.5rem;
+        }
+
+        .mega-menu-item-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 4rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 4rem 2rem;
+            }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            background-color: rgba(239, 68, 68, 0.1);
+            color: rgb(159, 18, 57);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.25rem;
+            }
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: rgb(var(--muted-foreground));
+            margin-bottom: 1rem;
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 0;
+            margin-top: 0;
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                height: 600px;
+            }
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            transition: opacity 1s ease-in-out;
+            opacity: 0;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), transparent);
+        }
+
+        .hero-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .hero-content-inner {
+            color: white;
+            max-width: 40rem;
+            padding: 1rem;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hero-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .hero-btn-primary {
+            background-color: rgb(var(--primary));
+            color: white;
+        }
+
+        .hero-btn-primary:hover {
+            background-color: rgb(102, 0, 0);
+        }
+
+        .hero-btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+
+        .hero-nav-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-nav-prev {
+            left: 1rem;
+        }
+
+        .hero-nav-next {
+            right: 1rem;
+        }
+
+        .hero-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 20;
+        }
+
+        .hero-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hero-dot.active {
+            background-color: white;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        /* QUICK STATS */
+        .quick-stats {
+            background-color: rgb(var(--card));
+            padding: 2rem 1rem;
+            border-top: 1px solid rgb(var(--border-light));
+            border-bottom: 1px solid rgb(var(--border-light));
+            margin: 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 0.5rem;
+            color: rgb(var(--primary));
+        }
+
+        .stat-value {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgb(var(--muted-foreground));
+        }
+
+        /* ABOUT SECTION */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-text p {
+            color: rgb(var(--muted-foreground));
+            line-height: 1.75;
+        }
+
+        .about-features {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-feature-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: rgba(122, 31, 31, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(var(--primary));
+            flex-shrink: 0;
+        }
+
+        .about-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .about-card {
+            background: rgb(var(--card));
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgb(var(--border-light));
+            display: flex;
+            gap: 1rem;
+        }
+
+        .about-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 0.5rem;
+            background-color: rgba(122, 31, 31, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(var(--primary));
+            flex-shrink: 0;
+        }
+
+        .about-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-card-text {
+            font-size: 0.875rem;
+            color: rgb(var(--muted-foreground));
+            line-height: 1.5;
+        }
+
+        /* ACADEMIC PROGRAMS */
+        .bg-background {
+            background-color: rgb(var(--background));
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .programs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .program-card {
+            background: rgb(var(--card));
+            border-radius: 1rem;
+            border: 1px solid rgb(var(--border-light));
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .program-card:hover {
+            box-shadow: var(--shadow-xl);
+        }
+
+        .program-image {
+            position: relative;
+            height: 224px;
+            background: rgb(var(--card));
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .program-image-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .program-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgb(var(--card));
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .program-title {
+            position: absolute;
+            bottom: 1.25rem;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .program-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .program-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .program-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.875rem;
+            color: rgb(var(--muted-foreground));
+            margin-bottom: 1.5rem;
+        }
+
+        .program-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .program-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-highlight {
+            padding: 0.5rem 0.75rem;
+            font-size: 0.75rem;
+            background-color: rgba(122, 31, 31, 0.05);
+            border: 1px solid rgb(var(--border-light));
+            border-radius: 9999px;
+            color: rgb(var(--muted-foreground));
+        }
+
+        /* PLACEMENTS SECTION */
+        .placements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .placement-stat {
+            padding: 1.5rem;
+            text-align: center;
+            background: rgb(var(--card));
+            border-radius: 0.75rem;
+            border: 1px solid rgb(var(--border-light));
+            border-left: 4px solid rgb(var(--primary));
+            transition: all 0.3s;
+        }
+
+        .placement-stat:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .placement-stat-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 0.75rem;
+            color: rgb(var(--primary));
+        }
+
+        .placement-stat-value {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .placement-stat-label {
+            font-size: 0.875rem;
+            color: rgb(var(--muted-foreground));
+        }
+
+        .partners-section {
+            background: rgb(var(--card));
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgb(var(--border-light));
+        }
+
+        .partners-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 64rem;
+            margin: 0 auto;
+            align-items: center;
+            justify-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .partners-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .partner-logo {
+            width: 100%;
+            height: auto;
+            max-height: 56px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .partners-text {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.875rem;
+            color: rgb(var(--muted-foreground));
+        }
+
+        /* ENQUIRY SECTION */
+        .enquiry {
+            background-color: rgb(var(--primary));
+            color: white;
+        }
+
+        .enquiry-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .enquiry-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .enquiry-info-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .enquiry-info-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .enquiry-info-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .enquiry-info-text {
+            font-size: 0.875rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .enquiry-form-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .enquiry-form-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: rgb(var(--foreground));
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 640px) {
+            .form-group-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgb(var(--border));
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: rgb(var(--primary));
+            box-shadow: 0 0 0 3px rgba(122, 31, 31, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgb(var(--muted-foreground));
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: rgba(122, 31, 31, 0.05);
+            padding: 2rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        .footer-section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: rgb(122, 31, 31);
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: rgb(var(--foreground));
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(122, 31, 31, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(var(--primary));
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: rgba(122, 31, 31, 0.2);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: rgb(var(--foreground));
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: rgb(var(--primary));
+        }
+
+        .footer-affiliations {
+            border-top: 1px solid rgba(122, 31, 31, 0.2);
+            padding-top: 1.25rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: rgb(var(--foreground));
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(122, 31, 31, 0.2);
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            color: rgb(var(--foreground));
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-bottom-links a:hover {
+            color: rgb(var(--primary));
+        }
+
+        /* UTILITIES */
+        .text-center {
+            text-align: center;
+        }
+
+        .whitespace-nowrap {
+            white-space: nowrap;
+        }
+
+        svg {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            vertical-align: -0.125em;
+        }
+
+        @media (max-width: 768px) {
+            .hide-mobile {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <div class="topbar-content">
+            <a href="tel:+918447753524">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span class="hide-mobile">+91-8447753524</span>
+            </a>
+
+            <span class="topbar-divider hide-mobile">|</span>
+
+            <a href="#">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6"></path><path d="M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24"></path><path d="M1 12h6m6 0h6"></path><path d="M4.22 19.78l4.24-4.24m3.08-3.08l4.24-4.24"></path></svg>
+                <span class="hide-mobile">Pay Fee Online</span>
+            </a>
+
+            <span class="topbar-divider hide-mobile">|</span>
+
+            <div style="display: flex; gap: 0.5rem;">
+                <a href="#" title="Facebook">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h1z"></path></svg>
+                </a>
+                <a href="#" title="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 0a24 24 0 0 0-24 24 24 24 0 0 0 24 24 24 24 0 0 0 24-24 24 24 0 0 0-24-24zm0 0" transform="translate(-0.01)"/><path fill="white" d="M19.293 6.5a2.5 2.5 0 0 0-2.5-2.5h-9.586a2.5 2.5 0 0 0-2.5 2.5v10a2.5 2.5 0 0 0 2.5 2.5h9.586a2.5 2.5 0 0 0 2.5-2.5zm-7.207 7.426l-4.145 2.402V12l4.145-2.402zm0 0" transform="translate(-0.01)"/></svg>
+                </a>
+            </div>
+
+            <span class="topbar-divider hide-mobile">|</span>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search..." style="display: none;" id="searchInput">
+                <button style="background: none; border: none; color: white; cursor: pointer; padding: 0;" onclick="document.getElementById('searchInput').style.display = document.getElementById('searchInput').style.display === 'none' ? 'block' : 'none';">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-top">
+            <div class="header-top-content">
+                <div class="logo-section">
+                    <img src="/placeholder.svg?height=80&width=80" alt="I.T.S Institute Logo" class="logo-img">
+                    <div class="logo-text">
+                        <h1 class="institution-name">I.T.S<br>Institute of Health & Allied Sciences</h1>
+                        <p class="institution-subtitle">Affiliated to Atal Bihari Vajpayee Medical University, Lucknow</p>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <div class="naac-badge">
+                        <div class="naac-badge-circle">NAAC</div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: rgb(var(--muted-foreground));">Accredited</div>
+                            <div style="font-size: 0.875rem; font-weight: 600;">Institute</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary">Virtual Tour</button>
+                    <button class="btn btn-primary">Apply Now</button>
+                </div>
+
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav class="nav-primary">
+            <div class="nav-primary-content" id="navMenu">
+                <div class="nav-item" onmouseenter="openMenu(this)" onmouseleave="closeMenu(this)">
+                    <a href="#" class="nav-link">About Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-header">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 32px; height: 32px; color: rgb(var(--primary));"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                                <h3>About Us</h3>
+                            </div>
+                            <div class="mega-menu-grid">
+                                <a href="#" class="mega-menu-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="mega-menu-item-icon" style="color: rgb(var(--primary));"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                                    <div class="mega-menu-item-text">College Overview</div>
+                                </a>
+                                <a href="#" class="mega-menu-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="mega-menu-item-icon" style="color: rgb(var(--primary));"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                    <div class="mega-menu-item-text">Vision & Mission</div>
+                                </a>
+                                <a href="#" class="mega-menu-item">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" class="mega-menu-item-icon" style="color: rgb(var(--primary));"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                                    <div class="mega-menu-item-text">Campus Map</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-item" onmouseenter="openMenu(this)" onmouseleave="closeMenu(this)">
+                    <a href="#" class="nav-link">Academics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                </div>
+
+                <div class="nav-item" onmouseenter="openMenu(this)" onmouseleave="closeMenu(this)">
+                    <a href="#" class="nav-link">Admissions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Faculty</a>
+                </div>
+
+                <div class="nav-item" onmouseenter="openMenu(this)" onmouseleave="closeMenu(this)">
+                    <a href="#" class="nav-link">Infrastructure <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Research</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Student Life</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Alumni</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Career & Placement</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="#" class="nav-link">NAAC</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-slide active">
+            <img src="/placeholder.svg?height=600&width=1200" alt="Best Physiotherapy College in UP">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide">
+            <img src="/placeholder.svg?height=600&width=1200" alt="Best Physiotherapy College Award 2025">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide">
+            <img src="/placeholder.svg?height=600&width=1200" alt="International Conference on Rehabilitation Sciences">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-content-inner">
+                    <h2 class="hero-title" id="heroTitle">Best Physiotherapy College in UP | Top Institute Near Delhi NCR</h2>
+                    <p class="hero-subtitle" id="heroSubtitle">Excellence in Healthcare Education Since 1994</p>
+                    <div class="hero-buttons">
+                        <button class="hero-btn hero-btn-primary">Apply Now</button>
+                        <button class="hero-btn hero-btn-secondary">Explore Programs</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="hero-nav hero-nav-prev" onclick="prevSlide()" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="hero-nav hero-nav-next" onclick="nextSlide()" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <div class="hero-dots">
+            <button class="hero-dot active" onclick="goToSlide(0)" aria-label="Go to slide 1"></button>
+            <button class="hero-dot" onclick="goToSlide(1)" aria-label="Go to slide 2"></button>
+            <button class="hero-dot" onclick="goToSlide(2)" aria-label="Go to slide 3"></button>
+        </div>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section class="quick-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-13c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"/></svg>
+                    <p class="stat-value">30+</p>
+                    <p class="stat-label">Years of Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.64 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    <p class="stat-value">5000+</p>
+                    <p class="stat-label">Alumni Network</p>
+                </div>
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    <p class="stat-value">50+</p>
+                    <p class="stat-label">Partner Hospitals</p>
+                </div>
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <p class="stat-value">100%</p>
+                    <p class="stat-label">Placement Record</p>
+                </div>
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54h3.98l4.46-6.04-1.41-1.41L14.5 10.5z"/></svg>
+                    <p class="stat-value">2</p>
+                    <p class="stat-label">Academic Programs</p>
+                </div>
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 9.5c0 .83-.67 1.5-1.5 1.5S11 13.33 11 12.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5z"/></svg>
+                    <p class="stat-value">12+</p>
+                    <p class="stat-label">Labs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="bg-background">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About the Institute</h2>
+                <p class="section-subtitle">I.T.S Institute of Health & Allied Sciences (IHAS) is a premier institution under I.T.S – The Education Group, dedicated to excellence in healthcare education.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Established with a vision to produce competent healthcare professionals, IHAS offers comprehensive programs in Physiotherapy and Biotechnology. Affiliated with Atal Bihari Vajpayee Medical University, Lucknow, and accredited with NAAC Grade "B", we maintain the highest standards of academic excellence.</p>
+                    <p>Located at Murad Nagar, Ghaziabad, our campus provides state-of-the-art infrastructure, including modern laboratories, a well-stocked library, and clinical training facilities. Our dedicated faculty, comprising experienced academicians and industry experts, ensures holistic development of students.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            </div>
+                            <span class="text-sm font-medium">Safe Campus</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            </div>
+                            <span class="text-sm font-medium">NAAC Accredited</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-cards">
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="about-card-title">Our Vision</h3>
+                            <p class="about-card-text">To be a globally recognized center of excellence in health sciences education, producing competent professionals who contribute to healthcare advancement and community well-being.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="about-card-title">Our Mission</h3>
+                            <p class="about-card-text">To provide quality education through innovative teaching methodologies, hands-on clinical training, and research opportunities that prepare students for successful careers in healthcare.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACADEMIC PROGRAMS -->
+    <section class="bg-background">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Academic Programs</span>
+                <h2 class="section-title">Our Programs</h2>
+                <p class="section-subtitle">Carefully structured undergraduate and postgraduate programs designed to build strong clinical competence and professional excellence.</p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="/placeholder.svg?height=224&width=400" alt="Bachelor of Physiotherapy">
+                        <div class="program-image-overlay"></div>
+                        <span class="program-badge">BPT</span>
+                        <h3 class="program-title">Bachelor of Physiotherapy</h3>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span class="program-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6"></path></svg>
+                                4.5 Years
+                            </span>
+                            <span class="program-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                60 Seats
+                            </span>
+                        </div>
+
+                        <div class="program-highlights">
+                            <span class="program-highlight">Clinical Rotations</span>
+                            <span class="program-highlight">Hospital Internship</span>
+                            <span class="program-highlight">Sports Rehabilitation</span>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;">
+                            View Program Details
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="/placeholder.svg?height=224&width=400" alt="Master of Physiotherapy">
+                        <div class="program-image-overlay"></div>
+                        <span class="program-badge">MPT</span>
+                        <h3 class="program-title">Master of Physiotherapy</h3>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-meta">
+                            <span class="program-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><circle cx="12" cy="12" r="1"></circle><path d="M12 1v6m0 6v6"></path></svg>
+                                2 Years
+                            </span>
+                            <span class="program-meta-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                                20 Seats
+                            </span>
+                        </div>
+
+                        <div class="program-highlights">
+                            <span class="program-highlight">Specialization Tracks</span>
+                            <span class="program-highlight">Research Thesis</span>
+                            <span class="program-highlight">Advanced Clinical Training</span>
+                        </div>
+
+                        <button class="btn btn-primary" style="width: 100%;">
+                            View Program Details
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLACEMENTS SECTION -->
+    <section class="bg-background">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Career Excellence</span>
+                <h2 class="section-title">Placements & Industry Partners</h2>
+                <p class="section-subtitle">Strong collaborations with trusted healthcare and insurance partners, supporting career growth and professional exposure.</p>
+                <button class="btn btn-primary" style="margin-top: 1.5rem;">View Placement Statistics</button>
+            </div>
+
+            <div class="placements-grid">
+                <div class="placement-stat">
+                    <svg class="placement-stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    <p class="placement-stat-value">95%</p>
+                    <p class="placement-stat-label">Placement Rate</p>
+                </div>
+
+                <div class="placement-stat">
+                    <svg class="placement-stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    <p class="placement-stat-value">50+</p>
+                    <p class="placement-stat-label">Recruiting Partners</p>
+                </div>
+
+                <div class="placement-stat">
+                    <svg class="placement-stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    <p class="placement-stat-value">₹6 LPA</p>
+                    <p class="placement-stat-label">Average Package</p>
+                </div>
+
+                <div class="placement-stat">
+                    <svg class="placement-stat-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                    <p class="placement-stat-value">200+</p>
+                    <p class="placement-stat-label">Placed Students (2025)</p>
+                </div>
+            </div>
+
+            <div class="partners-section" style="margin-top: 3rem;">
+                <h3 class="partners-title">Our Partners</h3>
+
+                <div class="partners-grid">
+                    <img src="/placeholder.svg?height=56&width=150" alt="Indata" class="partner-logo">
+                    <img src="/placeholder.svg?height=56&width=150" alt="Coarse Health" class="partner-logo">
+                    <img src="/placeholder.svg?height=56&width=150" alt="Kinetic" class="partner-logo">
+                    <img src="/placeholder.svg?height=56&width=150" alt="Niva Bupa" class="partner-logo">
+                </div>
+
+                <p class="partners-text">Partnerships focused on clinical exposure, insurance support, and healthcare technology collaboration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENQUIRY SECTION -->
+    <section class="enquiry">
+        <div class="container">
+            <div class="enquiry-grid">
+                <div>
+                    <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Get In Touch</h2>
+                    <p style="opacity: 0.8; margin-bottom: 2rem;">Have questions about admissions or our programs? Our counseling team is here to help.</p>
+
+                    <div class="space-y-6" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="enquiry-info-item">
+                            <div class="enquiry-info-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="enquiry-info-title">Campus Address</h4>
+                                <p class="enquiry-info-text">
+                                    I.T.S Institute of Health & Allied Sciences<br>
+                                    Murad Nagar, Ghaziabad<br>
+                                    Uttar Pradesh - 201206
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="enquiry-info-item">
+                            <div class="enquiry-info-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="enquiry-info-title">Phone</h4>
+                                <p class="enquiry-info-text">
+                                    Admissions: +91-8447753524<br>
+                                    General: +91-120-2675602
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="enquiry-info-item">
+                            <div class="enquiry-info-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 20px; height: 20px;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="enquiry-info-title">Email</h4>
+                                <p class="enquiry-info-text">
+                                    admissions@ihas.edu.in<br>
+                                    info@ihas.edu.in
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="enquiry-form-card">
+                        <h3 class="enquiry-form-title">Send an Enquiry</h3>
+                        <form onsubmit="handleFormSubmit(event)">
+                            <div class="form-group-2col">
+                                <input type="text" class="form-input" placeholder="Your Name" required>
+                                <input type="tel" class="form-input" placeholder="Phone Number" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="Email Address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-select" required>
+                                    <option value="">Select Program of Interest</option>
+                                    <option value="bpt">Bachelor of Physiotherapy (BPT)</option>
+                                    <option value="mpt">Master of Physiotherapy (MPT)</option>
+                                    <option value="bsc">B.Sc Biotechnology</option>
+                                    <option value="msc">M.Sc Biotechnology</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-textarea" placeholder="Your Message" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                                Submit Enquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-section-title">I.T.S Institute of Health & Allied Sciences</h3>
+                    <p class="footer-text">
+                        A premier institution for healthcare education, affiliated with Atal Bihari Vajpayee Medical University, Lucknow.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;"><path d="M18 2h-3a6 6 0 0 0-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 0 1 2-2h1z"></path></svg>
+                        </a>
+                        <a href="#" class="social-link" title="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;"><path d="M23 0a24 24 0 0 0-24 24 24 24 0 0 0 24 24"/><path fill="white" d="M19.293 6.5a2.5 2.5 0 0 0-2.5-2.5h-9.586a2.5 2.5 0 0 0-2.5 2.5v10a2.5 2.5 0 0 0 2.5 2.5h9.586a2.5 2.5 0 0 0 2.5-2.5zm-7.207 7.426l-4.145 2.402V12l4.145-2.402zm0 0"/></svg>
+                        </a>
+                        <a href="#" class="social-link" title="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2s9 5 20 5a9.5 9.5 0 0 0 9-10.5A10.9 10.9 0 0 1 23 3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" title="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path fill="white" d="M16.5 5.5H7.5A2 2 0 0 0 5.5 7.5v9A2 2 0 0 0 7.5 18.5h9A2 2 0 0 0 18.5 16.5v-9A2 2 0 0 0 16.5 5.5z"/><circle cx="12" cy="12" r="3" fill="#121212"/><circle cx="16.5" cy="7.5" r="1.5" fill="#121212"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-section-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#admissions">Admissions</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#faculty">Faculty</a></li>
+                        <li><a href="#infrastructure">Infrastructure</a></li>
+                        <li><a href="#placements">Placements</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-section-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Fee Payment</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Alumni Network</a></li>
+                        <li><a href="#">Career Opportunities</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-section-title">Academics</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">BPT Program</a></li>
+                        <li><a href="#">MPT Program</a></li>
+                        <li><a href="#">Syllabus</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-affiliations">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px; display: inline-block; margin-right: 0.5rem; vertical-align: text-bottom;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Affiliated to ABVMU, Lucknow • NAAC Accredited Institute
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 I.T.S Institute of Health & Allied Sciences. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // HERO CAROUSEL
+        let currentSlide = 0;
+        const slides = [
+            { title: "Best Physiotherapy College in UP | Top Institute Near Delhi NCR", subtitle: "Excellence in Healthcare Education Since 1994" },
+            { title: "Best Physiotherapy College Award 2025", subtitle: "Recognized for Outstanding Contribution to Healthcare Education" },
+            { title: "International Conference on Rehabilitation Sciences", subtitle: "Global Collaboration for Advancing Healthcare Research" }
+        ];
+
+        function updateHeroContent() {
+            document.getElementById('heroTitle').textContent = slides[currentSlide].title;
+            document.getElementById('heroSubtitle').textContent = slides[currentSlide].subtitle;
+            
+            document.querySelectorAll('.hero-slide').forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            document.querySelectorAll('.hero-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateHeroContent();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateHeroContent();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateHeroContent();
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // MEGA MENU
+        function openMenu(element) {
+            const menu = element.querySelector('.mega-menu');
+            if (menu) menu.classList.add('active');
+        }
+
+        function closeMenu(element) {
+            const menu = element.querySelector('.mega-menu');
+            if (menu) menu.classList.remove('active');
+        }
+
+        // MOBILE MENU
+        function toggleMobileMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.style.display = navMenu.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        // FORM SUBMISSION
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your enquiry! Our team will contact you soon.');
+            event.target.reset();
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
